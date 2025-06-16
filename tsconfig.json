@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "build",
+        "moduleResolution": "node",
+        "module": "es2020",
+        "lib": ["ES2021", "DOM"],
+        "target": "esnext",
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "sourceMap": false,
+        "declaration": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules/**"]
+}
