@@ -23,18 +23,18 @@ export default plugin("houdini-plugin-zod", async () => {
                             AST.callExpression(
                                 AST.memberExpression(
                                     AST.identifier("z"),
-                                    AST.identifier("literal"),
+                                    AST.identifier("literal")
                                 ),
                                 [
                                     AST.arrayExpression(
                                         node.values.map((value) =>
-                                            AST.literal(value.name.value),
-                                        ),
+                                            AST.literal(value.name.value)
+                                        )
                                     ),
-                                ],
-                            ),
+                                ]
+                            )
                         ),
-                    ]),
+                    ])
                 );
 
                 if (node.description) {
@@ -42,7 +42,7 @@ export default plugin("houdini-plugin-zod", async () => {
                         AST.commentBlock(
                             `* ${node.description.value}`,
                             true,
-                            false,
+                            false
                         ),
                     ];
                 }
@@ -56,10 +56,10 @@ export default plugin("houdini-plugin-zod", async () => {
                     [
                         AST.importSpecifier(
                             AST.identifier("z"),
-                            AST.identifier("z"),
+                            AST.identifier("z")
                         ),
                     ],
-                    AST.literal("zod/v4"),
+                    AST.literal("zod/v4")
                 ),
                 // All the union definitions
                 ...unionDefinitions,
@@ -82,7 +82,7 @@ export default plugin("houdini-plugin-zod", async () => {
                         "./" +
                         path.relative(
                             config.rootDir,
-                            path.join(pluginRoot, "enums.js"),
+                            path.join(pluginRoot, "enums.js")
                         ),
                 })
             );
