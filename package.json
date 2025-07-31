@@ -20,7 +20,8 @@
         "build": "tsc",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
-        "lint": "eslint src/**/*.ts"
+        "lint": "eslint src/**/*.ts",
+        "publish": "pnpm run build && changeset publish"
     },
     "files": [
         "build"
