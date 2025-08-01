@@ -1,6 +1,6 @@
 {
     "name": "houdini-plugin-zod",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "A plugin for Houdini which generates Zod types from your graphql schema.",
     "keywords": [
         "graphql",
