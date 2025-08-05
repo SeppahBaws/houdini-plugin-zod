@@ -11,9 +11,10 @@ export default plugin("houdini-plugin-zod", async () => {
             const graphqlTypeMap = config.schema.getTypeMap();
 
             const enumAstNodes = Object.values(graphqlTypeMap)
-                .map((x) => x.astNode)
-                .filter((x) => x.kind === "EnumTypeDefinition")
-                .filter((x) => !config.isInternalEnum(x));
+                .map((type) => type.astNode)
+                .filter((node) => !!node)
+                .filter((node) => node.kind === "EnumTypeDefinition")
+                .filter((node) => !config.isInternalEnum(node));
 
             const unionDefinitions = enumAstNodes.map((node) => {
                 const astNode = AST.exportNamedDeclaration(
@@ -71,7 +72,6 @@ export default plugin("houdini-plugin-zod", async () => {
             }
 
             const p = path.join(pluginRoot, "enums.js");
-            console.log("writing zod enums to", p);
             await fs.writeFile(p, code);
         },
         indexFile: ({ config, content, pluginRoot, exportStarFrom }) => {
